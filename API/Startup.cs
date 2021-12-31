@@ -29,13 +29,12 @@ namespace API
             
         }
 
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
             services.AddControllers();
-            services.AddApplicationServices(_config); //this is optional. Neil did this "Just to keep things tidy"
+            services.AddApplicationServices(_config); //moving things to the extensions file is optional
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +52,6 @@ namespace API
             app.UseRouting();
 
             app.UseCors("CorsPolicy");
-            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
